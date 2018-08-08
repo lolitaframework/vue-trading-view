@@ -1,6 +1,6 @@
 {
   "name": "vue-trading-view",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vue trading view charts",
   "author": "Eugen Guriev <gurievcreative@gmail.com",
   "main": "dist/vue-trading-view.umd.js",
