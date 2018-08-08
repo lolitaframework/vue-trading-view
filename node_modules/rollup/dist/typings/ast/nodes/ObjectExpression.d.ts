@@ -1,0 +1,22 @@
+import Property from './Property';
+import CallOptions from '../CallOptions';
+import ExecutionPathOptions from '../ExecutionPathOptions';
+import { ForEachReturnExpressionCallback, SomeReturnExpressionCallback } from './shared/Expression';
+import { ObjectPath, ObjectPathKey } from '../values';
+import { Node, NodeBase } from './shared/Node';
+import { NodeType } from './NodeType';
+export declare function isObjectExpression(node: Node): node is ObjectExpression;
+export default class ObjectExpression extends NodeBase {
+    type: NodeType.ObjectExpression;
+    properties: Property[];
+    reassignPath(path: ObjectPath, options: ExecutionPathOptions): void;
+    forEachReturnExpressionWhenCalledAtPath(path: ObjectPath, callOptions: CallOptions, callback: ForEachReturnExpressionCallback, options: ExecutionPathOptions): void;
+    _getPossiblePropertiesWithName(name: ObjectPathKey, kinds: ObjectPath): {
+        properties: Property[];
+        hasCertainHit: boolean;
+    };
+    hasEffectsWhenAccessedAtPath(path: ObjectPath, options: ExecutionPathOptions): boolean;
+    hasEffectsWhenAssignedAtPath(path: ObjectPath, options: ExecutionPathOptions): boolean;
+    hasEffectsWhenCalledAtPath(path: ObjectPath, callOptions: CallOptions, options: ExecutionPathOptions): boolean;
+    someReturnExpressionWhenCalledAtPath(path: ObjectPath, callOptions: CallOptions, predicateFunction: SomeReturnExpressionCallback, options: ExecutionPathOptions): boolean;
+}
