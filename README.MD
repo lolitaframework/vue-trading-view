@@ -17,23 +17,49 @@ import VueTradingView from 'vue-trading-view';
 ...
 <template>
   <div class="hello">
-   <VueTradingView />
+    <VueTradingView />
   </div>
 </template>
-...
+
+<script>
+import VueTradingView from 'vue-trading-view';
+
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  components: {
+    VueTradingView,
+  }
+}
+</script>
 ```
 
 All given props are passed on to the widget config. See [this page](https://www.tradingview.com/widget/advanced-chart/) for the TradingView Advanced Real-Time Chart API.
 
 ### Advanced example
 ```javascript
-import VueTradingView from 'vue-trading-view';
-
-...
 <template>
   <div class="hello">
-   <VueTradingView :options="{ symbol: 'NASDAQ:AAPL' }" />
+    <VueTradingView :options="{
+      symbol: 'NASDAQ:AAPL',
+      theme: 'dark',
+    }" />
   </div>
 </template>
-...
+
+<script>
+import VueTradingView from 'vue-trading-view';
+
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  components: {
+    VueTradingView,
+  }
+}
+</script>
 ```

@@ -14,7 +14,7 @@ export default {
     };
   },
   props: {
-    options: String
+    options: Object
   },
   methods: {
     canUseDOM() {
